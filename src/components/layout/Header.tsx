@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Bell, Settings, HelpCircle, Menu } from 'lucide-react';
+import { Bell, Settings, HelpCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -12,7 +12,7 @@ import { SidebarTrigger } from '@/components/layout/Sidebar';
 
 const Header: React.FC = () => {
   return (
-    <header className="w-full bg-white/80 backdrop-blur-md border-b border-gray-200 fixed top-0 left-0 right-0 z-40 px-4">
+    <header className="w-full bg-white/80 backdrop-blur-md border-b border-gray-200 fixed top-0 left-0 right-0 z-50 px-4">
       <div className="flex items-center justify-between h-16">
         <div className="flex items-center gap-4">
           <SidebarTrigger />

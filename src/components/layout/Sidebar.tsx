@@ -27,7 +27,7 @@ const SidebarContext = createContext<SidebarContextType>({
 export const useSidebar = () => useContext(SidebarContext);
 
 export const SidebarProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   
   const toggle = () => {
     setIsOpen((prev) => !prev);
@@ -35,9 +35,7 @@ export const SidebarProvider: React.FC<{ children: React.ReactNode }> = ({ child
   
   return (
     <SidebarContext.Provider value={{ isOpen, toggle }}>
-      <div className="min-h-screen">
-        {children}
-      </div>
+      {children}
     </SidebarContext.Provider>
   );
 };
@@ -99,12 +97,12 @@ const Sidebar: React.FC = () => {
       {/* Sidebar */}
       <aside 
         className={cn(
-          "fixed top-0 left-0 h-full w-64 bg-white border-r border-gray-200 z-50 pt-16 transition-transform duration-300 ease-in-out",
-          isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0 lg:w-20"
+          "fixed top-16 left-0 h-[calc(100vh-4rem)] w-64 bg-white border-r border-gray-200 z-40 transition-transform duration-300 ease-in-out",
+          isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0 lg:w-64"
         )}
       >
         <div className="p-4 h-full flex flex-col">
-          <div className="mb-6 flex justify-end lg:justify-center">
+          <div className="mb-6 flex justify-end">
             <Button
               variant="ghost"
               size="icon"
@@ -131,16 +129,17 @@ const Sidebar: React.FC = () => {
               <div className="h-8 w-8 rounded-full bg-scope-orange text-white flex items-center justify-center font-medium text-sm">
                 AS
               </div>
-              {isOpen && (
-                <div className="flex flex-col">
-                  <span className="text-sm font-medium">Admin User</span>
-                  <span className="text-xs text-muted-foreground">admin@scope.com</span>
-                </div>
-              )}
+              <div className="flex flex-col">
+                <span className="text-sm font-medium">Admin User</span>
+                <span className="text-xs text-muted-foreground">admin@scope.com</span>
+              </div>
             </div>
           </div>
         </div>
       </aside>
+
+      {/* Spacer div to push content to the right on large screens */}
+      <div className="hidden lg:block w-64 flex-shrink-0"></div>
     </>
   );
 };

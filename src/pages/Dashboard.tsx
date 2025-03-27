@@ -1,7 +1,7 @@
 
 import React from 'react';
 import DashboardOverview from '@/components/dashboard/DashboardOverview';
-import BatteryCard from '@/components/dashboard/BatteryCard';
+import BatteryCardWrapper from '@/components/dashboard/BatteryCardWrapper';
 import ChargerCard from '@/components/dashboard/ChargerCard';
 import AlertsPanel from '@/components/alerts/AlertsPanel';
 import LineChart from '@/components/charts/LineChart';
@@ -151,7 +151,7 @@ const Dashboard: React.FC = () => {
           <h2 className="text-xl font-medium mb-4">Battery Banks</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {batteries.map((battery) => (
-              <BatteryCard key={battery.id} {...battery} />
+              <BatteryCardWrapper key={battery.id} {...battery} />
             ))}
           </div>
         </div>
