@@ -6,7 +6,11 @@ import ChargerCard from '@/components/dashboard/ChargerCard';
 import AlertsPanel from '@/components/alerts/AlertsPanel';
 import LineChart from '@/components/charts/LineChart';
 
-// Sample data
+// Define the status type to match the expected type in components
+type StatusType = 'normal' | 'warning' | 'critical' | 'inactive';
+type AlertSeverity = 'warning' | 'critical' | 'info';
+
+// Sample data with correct typing
 const batteries = [
   {
     id: 'BAT-001',
@@ -15,7 +19,7 @@ const batteries = [
     current: 12.5,
     temperature: 25.3,
     chargeLevel: 78,
-    status: 'normal',
+    status: 'normal' as StatusType,
     lastUpdated: '2 mins ago',
   },
   {
@@ -25,7 +29,7 @@ const batteries = [
     current: 10.8,
     temperature: 27.1,
     chargeLevel: 65,
-    status: 'normal',
+    status: 'normal' as StatusType,
     lastUpdated: '5 mins ago',
   },
   {
@@ -35,7 +39,7 @@ const batteries = [
     current: 15.2,
     temperature: 29.8,
     chargeLevel: 42,
-    status: 'warning',
+    status: 'warning' as StatusType,
     lastUpdated: '1 min ago',
   },
   {
@@ -45,7 +49,7 @@ const batteries = [
     current: 0,
     temperature: 24.5,
     chargeLevel: 0,
-    status: 'inactive',
+    status: 'inactive' as StatusType,
     lastUpdated: '30 mins ago',
   },
 ];
@@ -58,7 +62,7 @@ const chargers = [
     outputVoltage: 48.5,
     outputCurrent: 25.2,
     powerFactor: 0.95,
-    status: 'normal',
+    status: 'normal' as StatusType,
     lastUpdated: '3 mins ago',
   },
   {
@@ -68,7 +72,7 @@ const chargers = [
     outputVoltage: 48.3,
     outputCurrent: 18.7,
     powerFactor: 0.93,
-    status: 'normal',
+    status: 'normal' as StatusType,
     lastUpdated: '7 mins ago',
   },
 ];
@@ -79,7 +83,7 @@ const alerts = [
     title: 'High String Voltage Alert',
     description: 'Battery Bank 1 voltage exceeded the threshold of 49V. Current value: 49.2V.',
     timestamp: '10 mins ago',
-    severity: 'critical',
+    severity: 'critical' as AlertSeverity,
     source: 'Battery Bank 1',
     acknowledged: false,
   },
@@ -88,7 +92,7 @@ const alerts = [
     title: 'High Cell Temperature Warning',
     description: 'Cell 4 in Battery Bank 2 temperature is approaching critical level (28.5°C).',
     timestamp: '30 mins ago',
-    severity: 'warning',
+    severity: 'warning' as AlertSeverity,
     source: 'Battery Bank 2',
     acknowledged: false,
   },
@@ -97,7 +101,7 @@ const alerts = [
     title: 'Connection Restored',
     description: 'Connection to Battery Bank 3 has been restored after 5 minutes of downtime.',
     timestamp: '1 hour ago',
-    severity: 'info',
+    severity: 'info' as AlertSeverity,
     source: 'System',
     acknowledged: true,
   },

@@ -2,7 +2,7 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 
-type StatusType = 'normal' | 'warning' | 'critical' | 'inactive';
+export type StatusType = 'normal' | 'warning' | 'critical' | 'inactive';
 
 interface StatusBadgeProps {
   status: StatusType;

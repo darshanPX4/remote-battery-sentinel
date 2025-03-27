@@ -92,6 +92,7 @@ const Sidebar: React.FC = () => {
         <div 
           className="fixed inset-0 bg-black/40 z-40 lg:hidden backdrop-blur-sm" 
           onClick={toggle}
+          aria-hidden="true"
         />
       )}
       
@@ -118,7 +119,7 @@ const Sidebar: React.FC = () => {
           </div>
           
           <nav className="space-y-1.5 flex-1">
-            <SidebarItem to="/" icon={LayoutDashboard} label="Dashboard" />
+            <SidebarItem to="/dashboard" icon={LayoutDashboard} label="Dashboard" />
             <SidebarItem to="/realtime" icon={Activity} label="Real-Time View" />
             <SidebarItem to="/alerts" icon={BellRing} label="Alerts" />
             <SidebarItem to="/reports" icon={FileBarChart} label="Reports" />

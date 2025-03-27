@@ -26,7 +26,7 @@ const App = () => (
         <SidebarProvider>
           <div className="min-h-screen flex w-full">
             <Sidebar />
-            <div className="flex-1 pt-16">
+            <div className="flex-1 ml-0 lg:ml-20 pt-16">
               <Header />
               <main className="min-h-[calc(100vh-4rem)]">
                 <Routes>
